@@ -10,17 +10,15 @@ import pl.pollub.model.MyoState;
 @Getter
 public class DetailsProperties extends AbstractProperties {
     private final ObjectProperty<MyoState> connectState;
-//    private final StringProperty communicate;
     private final ObjectProperty<Arm> whichArm;
     private final ObjectProperty<PoseType> poseType;
     private final BooleanProperty isLocked;
     private final IntegerProperty batteryLevel;
 
     @Builder
-    public DetailsProperties(BooleanProperty isActive, ObjectProperty<MyoState> connectState, StringProperty communicate, ObjectProperty<Arm> whichArm, ObjectProperty<PoseType> poseType, BooleanProperty isLocked, IntegerProperty batteryLevel) {
+    public DetailsProperties(BooleanProperty isActive, ObjectProperty<MyoState> connectState, ObjectProperty<Arm> whichArm, ObjectProperty<PoseType> poseType, BooleanProperty isLocked, IntegerProperty batteryLevel) {
         super(isActive);
         this.connectState = connectState;
-//        this.communicate = communicate;
         this.whichArm = whichArm;
         this.poseType = poseType;
         this.isLocked = isLocked;
@@ -30,7 +28,6 @@ public class DetailsProperties extends AbstractProperties {
     public static DetailsProperties createProperties() {
         return DetailsProperties.builder()
                 .batteryLevel(new SimpleIntegerProperty(0))
-//                .communicate(new SimpleStringProperty())
                 .connectState(new SimpleObjectProperty<>(MyoState.MYO_UNKNOWN))
                 .isActive(new SimpleBooleanProperty())
                 .isLocked(new SimpleBooleanProperty())
