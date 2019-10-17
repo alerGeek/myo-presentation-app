@@ -1,0 +1,102 @@
+@import "/fxml-view/css/JMetroLightTheme.css";
+@import "/fxml-view/css/JMetroPanes.css";
+
+.root {
+    -fx-font-family: "Segoe UI Light";
+    -fx-pref-height: 600px;
+    -fx-pref-width: 800px;
+    -fx-max-height: root -fx-pref-height;
+    -fx-min-height: root -fx-pref-height;
+    -fx-max-width: root -fx-pref-width;
+    -fx-min-width: root -fx-pref-width;
+
+    -fx-alignment: center;
+    accent_color: green;
+}
+
+.v-box{
+    -fx-alignment: CENTER-CENTER;
+}
+
+/*text-area*/
+.text-area {
+    -fx-focus-traversable: true;
+    -fx-font-size: 18px;
+}
+.text-area .content, .text-area:focused .content, .text-area:hover .content {
+    -fx-background-color: border_disabled_color, background_disabled_color;
+}
+
+/*label*/
+.label, .text-field {
+    -fx-font-size: 20px;
+    -fx-wrap-text: false;
+    -fx-text-alignment: LEFT;
+    -fx-pref-height: 120px;
+}
+
+.label {
+    -fx-pref-width: 150px;
+    -fx-font-family: "Segoe UI Bold";
+}
+
+#myoDetailsLabel{
+    -fx-padding: 0 0 0 20px;
+    -fx-border-insets: 0 0 0 20px;
+    -fx-background-insets: 0 0 0 20px;
+}
+
+#poseLabel {
+    -fx-padding: 0 0 0 10px;
+    -fx-border-insets: 0 0 0 10px;
+    -fx-background-insets: 0 0 0 10px;
+}
+
+#poseDescriptionLabel {
+    -fx-opacity: 0.5;
+    -fx-wrap-text: true;
+}
+
+.label-highlight{
+    -fx-text-fill: accent_color;
+    -fx-font-family: "Segoe UI Bold";
+}
+
+.label-generated{
+    -fx-background-color: yellow;
+    -fx-border-color: yellow;
+}
+
+/*text-field*/
+.text-field {
+    -fx-pref-width: 300px;
+
+    -fx-skin: null;
+    -fx-opacity: 0.7;
+    -fx-background-color: root -fx-background-color;
+    -fx-border-color: root -fx-background-color;
+    -fx-focus-traversable: false;
+}
+
+
+/*image*/
+.imageView {
+    -fx-pref-height: 80px;
+    -fx-pref-width: 80px;
+    -fx-alignment: CENTER;
+}
+
+/*changeModesView*/
+.toggle-button {
+    -fx-pref-height: 80px;
+    -fx-pref-width: 200px;
+}
+
+#addMyoButton {
+    -fx-pref-width: 300px;
+}
+
+/*tab-header-area*/
+.tab-pane > .tab-header-area {
+    -fx-padding: 0.0em 0.166667em 0.0em 0.0em;
+}
