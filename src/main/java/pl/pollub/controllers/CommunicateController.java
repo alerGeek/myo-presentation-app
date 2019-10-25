@@ -1,19 +1,17 @@
 package pl.pollub.controllers;
 
-import javafx.application.Platform;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.concurrent.ScheduledService;
+import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.AnchorPane;
 import lombok.Getter;
 import lombok.Setter;
-import pl.pollub.factory.ModeType;
-import pl.pollub.factory.collectors.CollectorsFactory;
-import pl.pollub.factory.collectors.CommunicateCollector;
-import pl.pollub.factory.modes.CommunicateMode;
-import pl.pollub.factory.modes.ModeFactory;
-import pl.pollub.factory.properties.CommunicateProperties;
-import pl.pollub.factory.properties.PropertiesFactory;
+import pl.pollub.model.factory.collectors.AbstractDataCollector;
 import pl.pollub.model.fasade.DeviceFacade;
 import pl.pollub.tool.FacadeWrapperSingleton;
 
@@ -23,50 +21,38 @@ import java.util.ResourceBundle;
 @Getter
 @Setter
 public class CommunicateController implements Initializable {
-    @FXML
-    public TextArea communicateArea;
-    public AnchorPane paneApp;
-
+    @FXML private TextArea communicateArea;
+    @FXML private AnchorPane paneApp;
+    @FXML private TableColumn<AbstractDataCollector, String> modeCol;
+    @FXML private TableColumn<AbstractDataCollector, String> isActiveCol;
+    @FXML private TableView<AbstractDataCollector> listView;
     private final DeviceFacade deviceFacade = FacadeWrapperSingleton.INSTANCE.getFacade();
-    private final ModeType modeType = ModeType.COMMUNICATE_COLLECTOR;
-    private final ModeFactory modeFactory = new ModeFactory(new PropertiesFactory(), new CollectorsFactory());
-    private CommunicateMode mode = (CommunicateMode) modeFactory.createMode(modeType);
-    private CommunicateProperties properties = (CommunicateProperties) mode.getProperties();
-    private CommunicateCollector dataCollector = (CommunicateCollector) mode.getDataCollector();
-
 
     public void initialize(URL location, ResourceBundle resources) {
-//        FacadeWrapperSingleton.INSTANCE.getDevice().getCommunicate().bindBidirectional(properties.getAllCommunicate());
-//        properties.getNewCommunicate().bindBidirectional(FacadeWrapperSingleton.INSTANCE.getDevice().getCommunicate());
-//        communicateArea.textProperty().bindBidirectional(properties.getAllCommunicate());
-//        startMode();
+        setTableData();
+        updateTableData().start();
     }
 
-    public void startMode() {
-        deviceFacade.getCollectorService().setOnSucceeded(
-                event -> {
-                    if(deviceFacade.getDevice().getHub().get() == null || deviceFacade.getDevice().getMyo() == null){
-                        return;
-                    }
-                    if (!deviceFacade.getDevice().getDataCollectors().contains(dataCollector)) {
-                        mode.startMode();
-                    }
-                }
-        );
-        deviceFacade.getDevice().getCommunicate()
-                .addListener((observable, oldValue, newValue) ->
-                        Platform.runLater(() -> {
-                            if (!(oldValue == null) && !(oldValue.equals(""))) {
-                                communicateArea.appendText("\n");
-                            }
-                            communicateArea.appendText(newValue);
-                        })
-                );
-
-
+    private void setTableData() {
+        listView.setItems(deviceFacade.getDevice().getDataCollectors());
+        modeCol.setCellValueFactory(param -> new SimpleStringProperty(param.getValue().getCollectorName()));
+        isActiveCol.setCellValueFactory(param -> new SimpleStringProperty(param.getValue().getProperties().getIsActive().getValue().toString()));
     }
 
-    public void exitMode() {
-
+    private ScheduledService<Void> updateTableData() {
+        return new ScheduledService<Void>() {
+            @Override
+            protected Task<Void> createTask() {
+                return new Task<Void>() {
+                    @Override
+                    protected Void call() throws Exception {
+                        if (!listView.getItems().isEmpty()) {
+                            listView.refresh();
+                        }
+                        return null;
+                    }
+                };
+            }
+        };
     }
 }

@@ -1,12 +1,12 @@
 package pl.pollub.controllers;
 
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.AnchorPane;
 import lombok.Getter;
 import lombok.Setter;
-import pl.pollub.model.fasade.DeviceFacade;
-import pl.pollub.tool.FacadeWrapperSingleton;
+import pl.pollub.model.factory.ModeType;
 import pl.pollub.utils.NodesFinder;
 
 import java.net.URL;
@@ -16,65 +16,59 @@ import java.util.ResourceBundle;
 @Getter
 @Setter
 public class ChangeModesController implements Initializable {
-    public AnchorPane buttonsPane;
-
-    public ToggleButton listenerPresentationButton;
-    public ToggleButton listenerTutorialButton;
-    public ToggleButton listenerMouseButton;
+    @FXML private AnchorPane buttonsPane;
+    @FXML private ToggleButton listenerPresentationButton;
+    @FXML private ToggleButton listenerTutorialButton;
+    @FXML private ToggleButton listenerMouseButton;
 
     private List<ToggleButton> toggleButtons;
     private List<ToggleButton> listenerButtons;
 
-    private final DeviceFacade deviceFacade = FacadeWrapperSingleton.INSTANCE.getFacade();
-    private MainController mainController;
-    private RobotController robotController;
-    private DetailsController detailsController;
-    private MouseController mouseController;
-    private TutorialController tutorialController;
-    private CommunicateController communicateController;
+    @FXML private MainController mainViewController;
+    @FXML private ModesController modesViewController;
+    @FXML private RobotController robotViewController;
+    @FXML private DetailsController detailsViewController;
+    @FXML private MouseController mouseViewController;
+    @FXML private TutorialController tutorialViewController;
+    @FXML private CommunicateController communicateViewController;
 
     public void initialize(URL location, ResourceBundle resources) {
         this.toggleButtons = NodesFinder.getAllToggleButtons(NodesFinder.getAllNodes(this.buttonsPane));
         this.listenerButtons = NodesFinder.getListenersButtons(this.toggleButtons);
     }
 
-    public void initialiseDetailsController() {
-        if(detailsController.getMode().getProperties().getIsActive().get()){
+    public void initializeDetailsController() {
+        if (detailsViewController.getMode().getProperties().getIsActive().get()) {
             return;
         }
-        detailsController.startMode();
+        detailsViewController.startMode();
+        modesViewController.selectTab(ModeType.COMMUNICATE_COLLECTOR);
     }
 
-    public void initialiseCommunicateController() {
-        if(communicateController.getMode().getProperties().getIsActive().get()){
-            return;
-        }
-
-        communicateController.startMode();
-    }
-
-
-    public void presentationButtonOnAction() {
+    public void presentationHandler() {
         if (!listenerPresentationButton.isSelected()) {
-            robotController.stopMode();
+            robotViewController.stopMode();
         } else {
-            robotController.startMode();
+            robotViewController.startMode();
+            modesViewController.selectTab(ModeType.ROBOT_COLLECTOR);
         }
     }
 
-    public void tutorialButtonOnAction() {
+    public void tutorialHandler() {
         if (!listenerTutorialButton.isSelected()) {
-            tutorialController.stopMode();
+            tutorialViewController.stopMode();
         } else {
-            tutorialController.startMode();
+            tutorialViewController.startMode();
+            modesViewController.selectTab(ModeType.TUTORIAL_COLLECTOR);
         }
     }
 
-    public void mouseButtonOnAction() {
+    public void mouseHandler() {
         if (!listenerMouseButton.isSelected()) {
-            mouseController.stopMode();
+            mouseViewController.stopMode();
         } else {
-            mouseController.startMode();
+            mouseViewController.startMode();
+            modesViewController.selectTab(ModeType.MOUSE_COLLECTOR);
         }
     }
 }

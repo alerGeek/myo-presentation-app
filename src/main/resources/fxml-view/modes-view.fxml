@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<AnchorPane fx:id="modesView" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.pollub.controllers.ModesController">
+    <TabPane fx:id="modePaneView" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <Tab fx:id="communicateTab" closable="false" text="Komunikat">
+            <fx:include fx:id="communicateView" source="communicate-view.fxml" />
+            <tooltip>
+                <Tooltip autoHide="true" prefHeight="100.0" prefWidth="400.0" text="Tryb zawierający szczegóły procesu zbierania danych" textAlignment="JUSTIFY" wrapText="true" />
+            </tooltip>
+        </Tab>
+        <Tab fx:id="tutorialTab" closable="false" text="Tutorial">
+            <fx:include fx:id="tutorialView" source="tutorial-view.fxml" />
+            <tooltip>
+                <Tooltip autoHide="true" prefHeight="150.0" prefWidth="400.0" text="Wykonaj podświetlony w panelu: &quot;Samouczek&quot;. W przypadku prawidłowej odpowiedzi, gest zostanie wygerenowany ponownie. W przypadku negatywnej, gest pozostanie ten sam." textAlignment="JUSTIFY" wrapText="true" />
+            </tooltip>
+        </Tab>
+        <Tab fx:id="mouseTab" closable="false" text="Mysz">
+            <tooltip>
+                <Tooltip autoHide="true" prefHeight="150.0" prefWidth="400.0"
+                         text="Tryb jest domyślnie wyłączony. Aby uruchomić tryb zdalnie należy przytrzymać co najmniej 4s gest FIST."
+                         textAlignment="JUSTIFY" wrapText="true"/>
+            </tooltip>
+            <fx:include fx:id="mouseView" source="mouse-view.fxml"/>
+        </Tab>
+        <Tab fx:id="robotTab" closable="false" text="Prezentacja">
+            <tooltip>
+                <Tooltip autoHide="true" prefHeight="100.0" prefWidth="400.0" text="Uruchom tryb prezentacji. Uwaga: tryb symuluje prawdziwe zderzenia klawiatury!" textAlignment="JUSTIFY" wrapText="true" />
+            </tooltip>
+            <fx:include fx:id="robotView" source="robot-view.fxml"/>
+        </Tab>
+    </TabPane>
+</AnchorPane>

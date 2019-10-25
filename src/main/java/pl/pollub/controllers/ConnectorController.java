@@ -12,19 +12,16 @@ import pl.pollub.tool.FacadeWrapperSingleton;
 @Setter
 public class ConnectorController {
 
-    @FXML
-    private AnchorPane connectView;
-    @FXML
-    private ToggleButton addMyoButton;
+    @FXML private AnchorPane connectView;
+    @FXML private ToggleButton addMyoButton;
 
+    @FXML private MainController mainViewController;
     private final DeviceFacade deviceFacade = FacadeWrapperSingleton.INSTANCE.getFacade();
-    private MainController mainController;
 
     public void addMyoButtonOnAction() {
         deviceFacade.connectMyo();
 
-        mainController.getChangeModesViewController().initialiseDetailsController();
-        mainController.getChangeModesViewController().initialiseCommunicateController();
+        mainViewController.getChangeModesViewController().initializeDetailsController();
 
         deviceFacade.getConnector().getFindMyoTask().setOnSucceeded(
                 event -> {

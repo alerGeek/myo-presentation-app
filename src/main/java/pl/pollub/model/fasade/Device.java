@@ -7,12 +7,11 @@ import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import lombok.Getter;
-import pl.pollub.factory.collectors.AbstractDataCollector;
 import pl.pollub.model.MyoState;
-
-import java.util.ArrayList;
-import java.util.List;
+import pl.pollub.model.factory.collectors.AbstractDataCollector;
 
 @Getter
 public class Device {
@@ -21,9 +20,9 @@ public class Device {
     private final ObjectProperty<MyoState> myoState;
     private final StringProperty communicate;
 
-    private final List<AbstractDataCollector> dataCollectors;
+    private final ObservableList<AbstractDataCollector> dataCollectors;
 
-    public Device(ObjectProperty<Hub> hub, ObjectProperty<Myo> myo, ObjectProperty<MyoState> myoState, StringProperty communicate, List<AbstractDataCollector> dataCollectors) {
+    public Device(ObjectProperty<Hub> hub, ObjectProperty<Myo> myo, ObjectProperty<MyoState> myoState, StringProperty communicate, ObservableList<AbstractDataCollector> dataCollectors) {
         this.hub = hub;
         this.myo = myo;
         this.myoState = myoState;
@@ -32,38 +31,57 @@ public class Device {
     }
 
     public void addDataCollector(AbstractDataCollector dataCollector) throws HubNotFoundException {
-        if(hub.get() == null){
+        if (hub.get() == null) {
             throw new HubNotFoundException();
         }
 
-        communicate.set("Dodaję obserwatora: " +dataCollector.getClass());
-        dataCollector.getProperties().getIsActive().set(true);
+        if (!dataCollectors.contains(dataCollector)) {
+            dataCollectors.add(dataCollector);
+        }
+
         hub.get().addListener(dataCollector);
-        dataCollectors.add(dataCollector);
+        dataCollector.getProperties().getIsActive().set(true);
     }
 
-    public void removeDataCollector(AbstractDataCollector dataCollector) throws HubNotFoundException {
-        if(hub.get() == null){
-            throw new HubNotFoundException();
+    public void removeDataCollector(AbstractDataCollector dataCollector) {
+        if (hub.get() == null) {
+            try {
+                throw new HubNotFoundException();
+            } catch (HubNotFoundException e) {
+                communicate.setValue(e.getMessage());
+            }
         }
 
-        System.out.println("Usuwam obserwatora: " +dataCollector.getClass());
-        dataCollector.getProperties().getIsActive().set(false);
         hub.get().removeListener(dataCollector);
-        dataCollectors.remove(dataCollector);
+        dataCollector.getProperties().getIsActive().set(false);
     }
 
-    public void requestBattery(){
+    public void removeAllDataCollectors() {
+        if (hub.get() == null) {
+            try {
+                throw new HubNotFoundException();
+            } catch (HubNotFoundException e) {
+                communicate.setValue(e.getMessage());
+            }
+        }
+
+        dataCollectors.forEach(dataCollector -> {
+            hub.get().removeListener(dataCollector);
+            dataCollector.getProperties().getIsActive().set(false);
+        });
+    }
+
+    public void requestBattery() {
         myo.get().requestBatteryLevel();
     }
 
-    public  static Device create(){
+    public static Device create() {
         return new Device(
                 new SimpleObjectProperty<>(),
                 new SimpleObjectProperty<>(),
                 new SimpleObjectProperty<>(MyoState.MYO_UNKNOWN),
                 new SimpleStringProperty(),
-                new ArrayList<>()
+                FXCollections.observableArrayList()
         );
     }
 }

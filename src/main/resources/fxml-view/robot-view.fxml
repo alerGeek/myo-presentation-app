@@ -5,19 +5,19 @@
             fx:controller="pl.pollub.controllers.RobotController">
     <VBox alignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <!--        <HBox alignment="CENTER">-->
-        <!--            <Label id="poseLabel" fx:id="waveOutLabel" text="Aktualna pozycja:" />-->
+        <!--            <Label id="poseLabel" fx:id="waveOut" text="Aktualna pozycja:" />-->
         <!--            <TextField id="poseDescriptionLabel" fx:id="currentPosition">-->
         <!--            </TextField>-->
         <!--        </HBox>-->
         <!--        <HBox alignment="CENTER">-->
-        <!--            <Label id="poseLabel" fx:id="fistLabel" text="FIST" />-->
+        <!--            <Label id="poseLabel" fx:id="fist" text="FIST" />-->
         <!--            <Label id="poseDescriptionLabel" text="Włącza/Wyłącza Tryb myszki (&gt;4s)" />-->
         <!--            <ImageView fitWidth="80.0" pickOnBounds="true" preserveRatio="true">-->
         <!--                <Image url="@images/fist.png" />-->
         <!--            </ImageView>-->
         <!--        </HBox>-->
         <!--        <HBox alignment="CENTER">-->
-        <!--            <Label id="poseLabel" fx:id="fingersSpreadLabel" text="FINGERS" />-->
+        <!--            <Label id="poseLabel" fx:id="fingersSpread" text="FINGERS" />-->
         <!--            <Label id="poseDescriptionLabel" text="Prawy p. myszki (tryb myszki)" />-->
         <!--            <ImageView fitWidth="80.0" pickOnBounds="true" preserveRatio="true">-->
         <!--                <Image url="@images/fingers.png" />-->

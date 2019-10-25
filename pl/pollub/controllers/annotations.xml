@@ -1,0 +1,134 @@
+<root>
+    <item name='pl.pollub.controllers.ChangeModesController communicateViewController'>
+        <annotation name='javafx.fxml.FXML'/>
+    </item>
+    <item name='pl.pollub.controllers.ChangeModesController detailsViewController'>
+        <annotation name='javafx.fxml.FXML'/>
+    </item>
+    <item name='pl.pollub.controllers.ChangeModesController deviceFacade'>
+        <annotation name='javafx.fxml.FXML'/>
+    </item>
+    <item name="pl.pollub.controllers.ChangeModesController modesViewController">
+        <annotation name='javafx.fxml.FXML'/>
+    </item>
+    <item name='pl.pollub.controllers.ChangeModesController mouseViewController'>
+        <annotation name='javafx.fxml.FXML'/>
+    </item>
+    <item name='pl.pollub.controllers.ChangeModesController robotViewController'>
+        <annotation name='javafx.fxml.FXML'/>
+    </item>
+    <item name='pl.pollub.controllers.ChangeModesController tutorialViewController'>
+        <annotation name='javafx.fxml.FXML'/>
+    </item>
+    <item name='pl.pollub.controllers.CommunicateController communicateArea'>
+        <annotation name='javafx.fxml.FXML'/>
+    </item>
+    <item name='pl.pollub.controllers.CommunicateController listView'>
+        <annotation name='javafx.fxml.FXML'/>
+    </item>
+    <item name='pl.pollub.controllers.CommunicateController paneApp'>
+        <annotation name='javafx.fxml.FXML'/>
+    </item>
+    <item name='pl.pollub.controllers.ConnectorController addMyoButton'>
+        <annotation name='javafx.fxml.FXML'/>
+    </item>
+    <item name='pl.pollub.controllers.ConnectorController connectView'>
+        <annotation name='javafx.fxml.FXML'/>
+    </item>
+    <item name='pl.pollub.controllers.DetailsController batteryField'>
+        <annotation name='javafx.fxml.FXML'/>
+    </item>
+    <item name='pl.pollub.controllers.DetailsController handField'>
+        <annotation name='javafx.fxml.FXML'/>
+    </item>
+    <item name='pl.pollub.controllers.DetailsController lockField'>
+        <annotation name='javafx.fxml.FXML'/>
+    </item>
+    <item name='pl.pollub.controllers.DetailsController myoDetails'>
+        <annotation name='javafx.fxml.FXML'/>
+    </item>
+    <item name='pl.pollub.controllers.DetailsController myoStateField'>
+        <annotation name='javafx.fxml.FXML'/>
+    </item>
+    <item name='pl.pollub.controllers.DetailsController poseField'>
+        <annotation name='javafx.fxml.FXML'/>
+    </item>
+    <item name='pl.pollub.controllers.MainController changeModesView'>
+        <annotation name='javafx.fxml.FXML'/>
+    </item>
+    <item name='pl.pollub.controllers.MainController changeModesViewController'>
+        <annotation name='javafx.fxml.FXML'/>
+    </item>
+    <item name='pl.pollub.controllers.MainController connectorView'>
+        <annotation name='javafx.fxml.FXML'/>
+    </item>
+    <item name='pl.pollub.controllers.MainController connectorViewController'>
+        <annotation name='javafx.fxml.FXML'/>
+    </item>
+    <item name='pl.pollub.controllers.MainController detailsView'>
+        <annotation name='javafx.fxml.FXML'/>
+    </item>
+    <item name='pl.pollub.controllers.MainController detailsViewController'>
+        <annotation name='javafx.fxml.FXML'/>
+    </item>
+    <item name='pl.pollub.controllers.MainController main'>
+        <annotation name='javafx.fxml.FXML'/>
+    </item>
+    <item name='pl.pollub.controllers.MainController modesView'>
+        <annotation name='javafx.fxml.FXML'/>
+    </item>
+    <item name='pl.pollub.controllers.MainController modesViewController'>
+        <annotation name='javafx.fxml.FXML'/>
+    </item>
+    <item name='pl.pollub.controllers.ModesController communicateView'>
+        <annotation name='javafx.fxml.FXML'/>
+    </item>
+    <item name='pl.pollub.controllers.ModesController communicateViewController'>
+        <annotation name='javafx.fxml.FXML'/>
+    </item>
+    <item name='pl.pollub.controllers.ModesController modesView'>
+        <annotation name='javafx.fxml.FXML'/>
+    </item>
+    <item name='pl.pollub.controllers.ModesController mouseView'>
+        <annotation name='javafx.fxml.FXML'/>
+    </item>
+    <item name='pl.pollub.controllers.ModesController mouseViewController'>
+        <annotation name='javafx.fxml.FXML'/>
+    </item>
+    <item name='pl.pollub.controllers.ModesController robotPane'>
+        <annotation name='javafx.fxml.FXML'/>
+    </item>
+    <item name='pl.pollub.controllers.ModesController robotView'>
+        <annotation name='javafx.fxml.FXML'/>
+    </item>
+    <item name='pl.pollub.controllers.ModesController robotViewController'>
+        <annotation name='javafx.fxml.FXML'/>
+    </item>
+    <item name='pl.pollub.controllers.ModesController tutorialView'>
+        <annotation name='javafx.fxml.FXML'/>
+    </item>
+    <item name='pl.pollub.controllers.ModesController tutorialViewController'>
+        <annotation name='javafx.fxml.FXML'/>
+    </item>
+    <item name='pl.pollub.controllers.RobotController mouseView'>
+        <annotation name='javafx.fxml.FXML'/>
+    </item>
+    <item name="pl.pollub.controllers.TutorialController doubleTap">
+        <annotation name='javafx.fxml.FXML'/>
+    </item>
+    <item name="pl.pollub.controllers.TutorialController fingersSpread">
+        <annotation name='javafx.fxml.FXML'/>
+    </item>
+    <item name="pl.pollub.controllers.TutorialController fist">
+        <annotation name='javafx.fxml.FXML'/>
+    </item>
+    <item name='pl.pollub.controllers.TutorialController paneTutorial'>
+        <annotation name='javafx.fxml.FXML'/>
+    </item>
+    <item name='pl.pollub.controllers.TutorialController waveInLabel'>
+        <annotation name='javafx.fxml.FXML'/>
+    </item>
+    <item name="pl.pollub.controllers.TutorialController waveOut">
+        <annotation name='javafx.fxml.FXML'/>
+    </item>
+</root>

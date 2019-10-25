@@ -23,7 +23,21 @@ public class RobotManager implements Initializable {
         ROBOT_WRAPPER.getRobot().setAutoWaitForIdle(true);
     }
 
-    public static void moveRobot(int x, int y) {
-        ROBOT_WRAPPER.getRobot().mouseMove(x, y);
+    public static void moveMouse(float dx, float dy) {
+        Point currentPosition = MouseInfo.getPointerInfo().getLocation();
+        getRobot().mouseMove(currentPosition.x + (int) dx, currentPosition.y + (int) dy);
     }
+
+    public static int simulateMouseButtonEvent(int keyCode) {
+        getRobot().mousePress(keyCode);
+        getRobot().mouseRelease(keyCode);
+        return keyCode;
+    }
+
+    public static int simulateKeyEvent(int keyCode) {
+        getRobot().keyPress(keyCode);
+        getRobot().keyRelease(keyCode);
+        return keyCode;
+    }
+
 }
