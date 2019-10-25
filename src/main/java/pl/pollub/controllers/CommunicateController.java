@@ -1,6 +1,10 @@
 package pl.pollub.controllers;
 
 import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.MapChangeListener;
+import javafx.collections.ObservableList;
+import javafx.collections.ObservableMap;
 import javafx.concurrent.ScheduledService;
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;
@@ -11,11 +15,13 @@ import javafx.scene.control.TextArea;
 import javafx.scene.layout.AnchorPane;
 import lombok.Getter;
 import lombok.Setter;
-import pl.pollub.model.factory.collectors.AbstractDataCollector;
+import pl.pollub.model.factory.modes.AbstractMode;
 import pl.pollub.model.fasade.DeviceFacade;
 import pl.pollub.tool.FacadeWrapperSingleton;
 
 import java.net.URL;
+import java.util.Arrays;
+import java.util.Map;
 import java.util.ResourceBundle;
 
 @Getter
@@ -23,20 +29,29 @@ import java.util.ResourceBundle;
 public class CommunicateController implements Initializable {
     @FXML private TextArea communicateArea;
     @FXML private AnchorPane paneApp;
-    @FXML private TableColumn<AbstractDataCollector, String> modeCol;
-    @FXML private TableColumn<AbstractDataCollector, String> isActiveCol;
-    @FXML private TableView<AbstractDataCollector> listView;
+
+    @FXML private TableView<Map.Entry<String, AbstractMode>> listView;
+    @FXML private TableColumn<Map.Entry<String, AbstractMode>, String> modeCol;
+    @FXML private TableColumn<Map.Entry<String, AbstractMode>, String> isActiveCol;
+
     private final DeviceFacade deviceFacade = FacadeWrapperSingleton.INSTANCE.getFacade();
+    private ObservableList<Map.Entry<String, AbstractMode>> entries;
+
+    private ObservableMap<String, AbstractMode> modesMap = deviceFacade.getDevice().getModesMap();
 
     public void initialize(URL location, ResourceBundle resources) {
-        setTableData();
-        updateTableData().start();
-    }
+        modesMap.addListener((MapChangeListener<? super String, ? super AbstractMode>) change -> {
+            entries = FXCollections.observableArrayList(modesMap.entrySet());
+            listView.setItems(entries);
+        });
 
-    private void setTableData() {
-        listView.setItems(deviceFacade.getDevice().getDataCollectors());
-        modeCol.setCellValueFactory(param -> new SimpleStringProperty(param.getValue().getCollectorName()));
-        isActiveCol.setCellValueFactory(param -> new SimpleStringProperty(param.getValue().getProperties().getIsActive().getValue().toString()));
+        modeCol.setCellValueFactory(param -> new SimpleStringProperty(param.getValue().getKey()));
+        isActiveCol.setCellValueFactory(param -> new SimpleStringProperty(
+                param.getValue().getValue().getProperties().getIsActive().getValue() ? "aktywny" : "nieaktywny"));
+
+        listView.getColumns().setAll(Arrays.asList(modeCol, isActiveCol));
+
+        updateTableData().start();
     }
 
     private ScheduledService<Void> updateTableData() {

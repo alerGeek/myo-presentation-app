@@ -3,7 +3,6 @@ package pl.pollub.model.factory.collectors;
 import com.thalmic.myo.Myo;
 import com.thalmic.myo.Pose;
 import com.thalmic.myo.enums.VibrationType;
-import javafx.beans.property.StringProperty;
 import pl.pollub.model.factory.properties.AbstractProperties;
 import pl.pollub.model.factory.properties.TutorialProperties;
 

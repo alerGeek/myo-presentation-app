@@ -8,10 +8,11 @@ import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import javafx.collections.ObservableMap;
 import lombok.Getter;
 import pl.pollub.model.MyoState;
 import pl.pollub.model.factory.collectors.AbstractDataCollector;
+import pl.pollub.model.factory.modes.AbstractMode;
 
 @Getter
 public class Device {
@@ -20,14 +21,14 @@ public class Device {
     private final ObjectProperty<MyoState> myoState;
     private final StringProperty communicate;
 
-    private final ObservableList<AbstractDataCollector> dataCollectors;
+    private final ObservableMap<String, AbstractMode> modesMap;
 
-    public Device(ObjectProperty<Hub> hub, ObjectProperty<Myo> myo, ObjectProperty<MyoState> myoState, StringProperty communicate, ObservableList<AbstractDataCollector> dataCollectors) {
+    public Device(ObjectProperty<Hub> hub, ObjectProperty<Myo> myo, ObjectProperty<MyoState> myoState, StringProperty communicate, ObservableMap<String, AbstractMode> modesMap) {
         this.hub = hub;
         this.myo = myo;
         this.myoState = myoState;
         this.communicate = communicate;
-        this.dataCollectors = dataCollectors;
+        this.modesMap = modesMap;
     }
 
     public void addDataCollector(AbstractDataCollector dataCollector) throws HubNotFoundException {
@@ -35,25 +36,18 @@ public class Device {
             throw new HubNotFoundException();
         }
 
-        if (!dataCollectors.contains(dataCollector)) {
-            dataCollectors.add(dataCollector);
-        }
-
-        hub.get().addListener(dataCollector);
-        dataCollector.getProperties().getIsActive().set(true);
+        dataCollector.getProperties().getIsActive().setValue(true);
+        hub.getValue().addListener(dataCollector);
     }
 
-    public void removeDataCollector(AbstractDataCollector dataCollector) {
+    public void removeDataCollector(AbstractDataCollector dataCollector) throws HubNotFoundException {
         if (hub.get() == null) {
-            try {
-                throw new HubNotFoundException();
-            } catch (HubNotFoundException e) {
-                communicate.setValue(e.getMessage());
-            }
+            throw new HubNotFoundException();
         }
 
-        hub.get().removeListener(dataCollector);
-        dataCollector.getProperties().getIsActive().set(false);
+        final AbstractMode abstractMode = modesMap.get(dataCollector.getCollectorName());
+        abstractMode.getProperties().getIsActive().set(false);
+        hub.getValue().removeListener(dataCollector);
     }
 
     public void removeAllDataCollectors() {
@@ -65,9 +59,9 @@ public class Device {
             }
         }
 
-        dataCollectors.forEach(dataCollector -> {
-            hub.get().removeListener(dataCollector);
-            dataCollector.getProperties().getIsActive().set(false);
+        modesMap.forEach((key, abstractMode) -> {
+            hub.get().removeListener(abstractMode.getDataCollector());
+            abstractMode.getProperties().getIsActive().set(false);
         });
     }
 
@@ -81,8 +75,7 @@ public class Device {
                 new SimpleObjectProperty<>(),
                 new SimpleObjectProperty<>(MyoState.MYO_UNKNOWN),
                 new SimpleStringProperty(),
-                FXCollections.observableArrayList()
-        );
+                FXCollections.observableHashMap());
     }
 }
 

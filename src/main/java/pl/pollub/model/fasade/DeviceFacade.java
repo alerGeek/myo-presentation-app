@@ -1,7 +1,10 @@
 package pl.pollub.model.fasade;
 
+import com.thalmic.myo.exception.HubNotFoundException;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import pl.pollub.model.factory.ModeFactory;
+import pl.pollub.model.factory.collectors.AbstractDataCollector;
 
 @AllArgsConstructor
 @Getter
@@ -15,11 +18,31 @@ public class DeviceFacade {
     }
 
     public void collectData() {
-            this.collectorService.restart();
+        this.collectorService.restart();
     }
 
     public void stopCollectData() {
         this.collectorService.cancel();
+    }
+
+    public void addDataCollector(AbstractDataCollector dataCollector) {
+        try {
+            device.addDataCollector(dataCollector);
+        } catch (HubNotFoundException e) {
+            device.getCommunicate().setValue(e.getMessage());
+        }
+    }
+
+    public void removeDataCollector(AbstractDataCollector dataCollector) {
+        try {
+            device.removeDataCollector(dataCollector);
+        } catch (HubNotFoundException e) {
+            device.getCommunicate().setValue(e.getMessage());
+        }
+    }
+
+    public void addAllDataCollector() {
+        device.getModesMap().putAll(ModeFactory.createAllModes());
     }
 }
 

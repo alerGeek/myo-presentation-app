@@ -2,7 +2,6 @@ package pl.pollub.model.factory.collectors.posestrategy;
 
 import lombok.Getter;
 import lombok.Setter;
-import pl.pollub.tool.RobotManager;
 
 import static java.awt.event.KeyEvent.VK_LEFT;
 

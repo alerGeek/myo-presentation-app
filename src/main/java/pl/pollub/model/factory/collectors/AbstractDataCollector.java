@@ -1,7 +1,6 @@
 package pl.pollub.model.factory.collectors;
 
 import com.thalmic.myo.AbstractDeviceListener;
-import javafx.beans.property.StringProperty;
 import lombok.Getter;
 import pl.pollub.model.factory.properties.AbstractProperties;
 

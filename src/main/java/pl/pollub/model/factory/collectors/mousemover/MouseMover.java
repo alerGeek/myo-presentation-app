@@ -78,14 +78,9 @@ public class MouseMover {
         }
     }
 
-    public void moveMouse(int dx, int dy){
-
-    }
-
     public final float getDx() {
         return this._dx;
     }
-
 
     public final float getDy() {
         return this._dy;

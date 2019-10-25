@@ -4,7 +4,6 @@ import com.thalmic.myo.FirmwareVersion;
 import com.thalmic.myo.Myo;
 import com.thalmic.myo.Pose;
 import com.thalmic.myo.enums.*;
-import javafx.beans.property.StringProperty;
 import lombok.Builder;
 import pl.pollub.model.MyoState;
 import pl.pollub.model.factory.properties.AbstractProperties;

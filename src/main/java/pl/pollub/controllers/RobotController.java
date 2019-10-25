@@ -1,15 +1,10 @@
 package pl.pollub.controllers;
 
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.layout.AnchorPane;
 import pl.pollub.model.factory.ModeFactory;
 import pl.pollub.model.factory.ModeType;
-import pl.pollub.model.factory.collectors.RobotCollector;
 import pl.pollub.model.factory.modes.RobotMode;
-import pl.pollub.model.factory.properties.RobotProperties;
-import pl.pollub.model.fasade.DeviceFacade;
-import pl.pollub.tool.FacadeWrapperSingleton;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -17,12 +12,13 @@ import java.util.ResourceBundle;
 public class RobotController implements AbstractModeController {
     @FXML private AnchorPane robotView;
 
-    private final ModeType modeType = ModeType.ROBOT_COLLECTOR;
+    private final ModeType modeType = ModeType.PRESENTATION;
     private RobotMode mode = (RobotMode) ModeFactory.createMode(modeType);
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        robotView.setVisible(false);
     }
 
     public void startMode() {

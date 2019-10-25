@@ -23,7 +23,7 @@ import java.util.ResourceBundle;
 @Setter
 public class MainController implements Initializable {
 
-    @FXML private AnchorPane main;
+    @FXML private AnchorPane mainView;
     @FXML private VBox detailsView;
     @FXML private AnchorPane connectorView;
     @FXML private AnchorPane modesView;
@@ -39,7 +39,7 @@ public class MainController implements Initializable {
     private ArrayList<ToggleButton> listenerButtons;
 
     public void initialize(URL location, ResourceBundle resources) {
-        this.toggleButtons = NodesFinder.getAllToggleButtons(NodesFinder.getAllNodes(main));
+        this.toggleButtons = NodesFinder.getAllToggleButtons(NodesFinder.getAllNodes(mainView));
         this.listenerButtons = NodesFinder.getListenersButtons(toggleButtons);
 
         addHubListener();

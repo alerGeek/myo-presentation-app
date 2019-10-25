@@ -2,7 +2,6 @@ package pl.pollub.model.factory.collectors.posestrategy;
 
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
-import pl.pollub.tool.RobotManager;
 
 @AllArgsConstructor
 @NoArgsConstructor

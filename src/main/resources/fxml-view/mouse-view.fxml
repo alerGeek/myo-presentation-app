@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+
 <AnchorPane fx:id="mouseView" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.pollub.controllers.MouseController">
     <VBox alignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <HBox alignment="CENTER">
-            <Label id="poseLabel" fx:id="waveOutLabel" text="Aktualna pozycja:" />
-            <TextField fx:id="currentPosition" editable="false" mouseTransparent="true" promptText="BRAK DANYCH"/>
+            <Label id="poseLabel" fx:id="waveOutLabel" styleClass="poseLabel" text="Wskaźnik:" wrapText="true" />
+            <TextField fx:id="currentPosition" editable="false" mouseTransparent="true" promptText="BRAK DANYCH" />
         </HBox>
         <HBox alignment="CENTER">
             <Label id="poseLabel" fx:id="fistLabel" text="FIST" />

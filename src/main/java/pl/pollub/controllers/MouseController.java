@@ -18,8 +18,8 @@ public class MouseController implements AbstractModeController {
     @FXML private AnchorPane mouseView;
     @FXML private TextField currentPosition;
 
-    private final ModeType modeType = ModeType.MOUSE_COLLECTOR;
-    private MouseMode mode = (MouseMode) ModeFactory.createMode(modeType);
+    private final ModeType modeType = ModeType.MOUSE;
+    private final MouseMode mode = (MouseMode) ModeFactory.createMode(modeType);
 
     public void initialize(URL location, ResourceBundle resources) {
         this.currentPosition.textProperty().bind(mode.getProperties().getCurrentLocation());

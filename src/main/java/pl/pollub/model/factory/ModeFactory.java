@@ -6,20 +6,23 @@ import pl.pollub.model.factory.collectors.posestrategy.*;
 import pl.pollub.model.factory.modes.*;
 import pl.pollub.model.factory.properties.*;
 
+import java.util.Arrays;
+import java.util.HashMap;
+
 public class ModeFactory {
     public static AbstractProperties createProperties(ModeType modeType) {
         AbstractProperties createdProperties = null;
         switch (modeType) {
-            case DETAILS_COLLECTOR:
+            case DETAILS:
                 createdProperties = DetailsProperties.createProperties();
                 break;
-            case MOUSE_COLLECTOR:
+            case MOUSE:
                 createdProperties = MouseProperties.createProperties();
                 break;
-            case ROBOT_COLLECTOR:
+            case PRESENTATION:
                 createdProperties = RobotProperties.createProperties();
                 break;
-            case TUTORIAL_COLLECTOR:
+            case TUTORIAL:
                 createdProperties = TutorialProperties.createProperties();
                 break;
             default:
@@ -31,17 +34,17 @@ public class ModeFactory {
     public static AbstractDataCollector createCollector(ModeType modeType, AbstractProperties properties) {
         AbstractDataCollector createdCollector = null;
         switch (modeType) {
-            case DETAILS_COLLECTOR:
-                createdCollector = new DetailsCollector("details", properties);
+            case DETAILS:
+                createdCollector = new DetailsCollector(modeType.toLower(), properties);
                 break;
-            case MOUSE_COLLECTOR:
-                createdCollector = new MouseCollector("mouse", properties, new KeyActionContext(), new MouseMover(), new MouseLeftClickAction(), new MouseRightClickAction());
+            case MOUSE:
+                createdCollector = new MouseCollector(modeType.toLower(), properties, new KeyActionContext(), new MouseMover(), new MouseLeftClickAction(), new MouseRightClickAction());
                 break;
-            case ROBOT_COLLECTOR:
-                createdCollector = new RobotCollector("robot", properties, new KeyActionContext(), new LeftKeyAction(), new RightKeyAction());
+            case PRESENTATION:
+                createdCollector = new RobotCollector(modeType.toLower(), properties, new KeyActionContext(), new LeftKeyAction(), new RightKeyAction());
                 break;
-            case TUTORIAL_COLLECTOR:
-                createdCollector = new TutorialCollector("tutorial", properties);
+            case TUTORIAL:
+                createdCollector = new TutorialCollector(modeType.toLower(), properties);
                 break;
             default:
                 break;
@@ -52,18 +55,33 @@ public class ModeFactory {
     public static AbstractMode createMode(ModeType modeType) {
         AbstractProperties properties = createProperties(modeType);
         AbstractDataCollector dataCollector = createCollector(modeType, properties);
+        AbstractMode mode = null;
         switch (modeType) {
-            case DETAILS_COLLECTOR:
-                return new DetailsMode(properties, dataCollector);
-            case MOUSE_COLLECTOR:
-                return new MouseMode(properties, dataCollector);
-            case ROBOT_COLLECTOR:
-                return new RobotMode(properties, dataCollector);
-            case TUTORIAL_COLLECTOR:
-                return new TutorialMode(properties, dataCollector);
-            default:
+            case DETAILS:
+                mode = new DetailsMode(properties, dataCollector);
                 break;
+            case MOUSE:
+                mode = new MouseMode(properties, dataCollector);
+                break;
+            case PRESENTATION:
+                mode = new RobotMode(properties, dataCollector);
+                break;
+            case TUTORIAL:
+                mode = new TutorialMode(properties, dataCollector);
+                break;
+            case COMMUNICATE:
+                break;
+            default:
+                throw new IllegalArgumentException("There is no mode implementation of modeType = " + mode);
         }
-        throw new IllegalArgumentException("Nie ma takiego trybu");
+        return mode;
+    }
+
+    public static HashMap<String, AbstractMode> createAllModes() {
+        HashMap<String, AbstractMode> modesMap = new HashMap<>();
+
+        Arrays.stream(ModeType.values())
+                .forEach(modeType -> modesMap.put(modeType.toLower(), createMode(modeType)));
+        return modesMap;
     }
 }

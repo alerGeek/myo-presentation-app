@@ -35,7 +35,7 @@ public class TutorialController implements AbstractModeController {
     private static final String LABEL_HIGHLIGHT = "label-highlight";
     private static final String LABEL_GENERATED = "label-generated";
 
-    private final ModeType modeType = ModeType.TUTORIAL_COLLECTOR;
+    private final ModeType modeType = ModeType.TUTORIAL;
     private final TutorialMode mode = (TutorialMode) ModeFactory.createMode(modeType);
     private final TutorialProperties properties = mode.getProperties();
     private final TutorialCollector dataCollector = mode.getDataCollector();

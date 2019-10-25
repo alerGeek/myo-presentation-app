@@ -6,10 +6,10 @@ import pl.pollub.model.fasade.Connector;
 import pl.pollub.model.fasade.Device;
 import pl.pollub.model.fasade.DeviceFacade;
 
+@Getter
 public enum FacadeWrapperSingleton {
     INSTANCE;
 
-    @Getter
     private final DeviceFacade facade;
 
     FacadeWrapperSingleton() {

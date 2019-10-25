@@ -42,7 +42,7 @@ public class ChangeModesController implements Initializable {
             return;
         }
         detailsViewController.startMode();
-        modesViewController.selectTab(ModeType.COMMUNICATE_COLLECTOR);
+        modesViewController.selectTab(ModeType.COMMUNICATE);
     }
 
     public void presentationHandler() {
@@ -50,7 +50,7 @@ public class ChangeModesController implements Initializable {
             robotViewController.stopMode();
         } else {
             robotViewController.startMode();
-            modesViewController.selectTab(ModeType.ROBOT_COLLECTOR);
+            modesViewController.selectTab(ModeType.COMMUNICATE);
         }
     }
 
@@ -59,7 +59,7 @@ public class ChangeModesController implements Initializable {
             tutorialViewController.stopMode();
         } else {
             tutorialViewController.startMode();
-            modesViewController.selectTab(ModeType.TUTORIAL_COLLECTOR);
+            modesViewController.selectTab(ModeType.TUTORIAL);
         }
     }
 
@@ -68,7 +68,7 @@ public class ChangeModesController implements Initializable {
             mouseViewController.stopMode();
         } else {
             mouseViewController.startMode();
-            modesViewController.selectTab(ModeType.MOUSE_COLLECTOR);
+            modesViewController.selectTab(ModeType.MOUSE);
         }
     }
 }

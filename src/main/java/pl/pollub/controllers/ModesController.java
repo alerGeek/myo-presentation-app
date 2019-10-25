@@ -37,17 +37,14 @@ public class ModesController implements Initializable {
 
     public void selectTab(ModeType modeType) {
         switch (modeType) {
-            case MOUSE_COLLECTOR:
+            case MOUSE:
                 getModePaneView().getSelectionModel().select(mouseTab);
                 break;
-            case COMMUNICATE_COLLECTOR:
+            case COMMUNICATE:
                 getModePaneView().getSelectionModel().select(communicateTab);
                 break;
-            case TUTORIAL_COLLECTOR:
+            case TUTORIAL:
                 getModePaneView().getSelectionModel().select(tutorialTab);
-                break;
-            case ROBOT_COLLECTOR:
-                getModePaneView().getSelectionModel().select(robotTab);
                 break;
             default:
                 return;

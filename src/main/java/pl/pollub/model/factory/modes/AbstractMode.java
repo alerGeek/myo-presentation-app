@@ -1,6 +1,5 @@
 package pl.pollub.model.factory.modes;
 
-import com.thalmic.myo.exception.HubNotFoundException;
 import lombok.Getter;
 import lombok.Setter;
 import pl.pollub.model.factory.ModeType;
@@ -24,16 +23,13 @@ public abstract class AbstractMode {
         this.dataCollector = dataCollector;
     }
 
+    abstract void addToDeviceFacade();
+
     public void startMode() {
-        try {
-            deviceFacade.getDevice().addDataCollector(dataCollector);
-        } catch (HubNotFoundException e) {
-            deviceFacade.getDevice().getCommunicate().setValue(e.getMessage());
-            e.printStackTrace();
-        }
+        deviceFacade.addDataCollector(dataCollector);
     }
 
     public void stopMode() {
-        deviceFacade.getDevice().removeDataCollector(dataCollector);
+        deviceFacade.removeDataCollector(dataCollector);
     }
 }

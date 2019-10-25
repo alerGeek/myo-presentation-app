@@ -71,7 +71,7 @@
     <item name='pl.pollub.controllers.MainController detailsViewController'>
         <annotation name='javafx.fxml.FXML'/>
     </item>
-    <item name='pl.pollub.controllers.MainController main'>
+    <item name="pl.pollub.controllers.MainController mainView">
         <annotation name='javafx.fxml.FXML'/>
     </item>
     <item name='pl.pollub.controllers.MainController modesView'>

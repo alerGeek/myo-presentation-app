@@ -27,12 +27,13 @@ public class DetailsController implements AbstractModeController {
     @FXML private TextField batteryField;
 
     private final DeviceFacade deviceFacade = FacadeWrapperSingleton.INSTANCE.getFacade();
-    private final DetailsMode mode = (DetailsMode) ModeFactory.createMode(ModeType.DETAILS_COLLECTOR);
+    private final DetailsMode mode = (DetailsMode) ModeFactory.createMode(ModeType.DETAILS);
 
     public void initialize(URL location, ResourceBundle resources) {
         DetailsProperties properties = mode.getProperties();
 
         deviceFacade.getDevice().getMyoState().bindBidirectional(properties.getConnectState());
+
         this.poseField.textProperty().bind(properties.getPoseType().asString());
         this.myoStateField.textProperty().bind(properties.getConnectState().asString());
         this.handField.textProperty().bind(properties.getWhichArm().asString());
@@ -47,9 +48,7 @@ public class DetailsController implements AbstractModeController {
                     if (deviceFacade.getDevice().getHub().get() == null || deviceFacade.getDevice().getMyo() == null) {
                         return;
                     }
-                    if (!deviceFacade.getDevice().getDataCollectors().contains(mode.getDataCollector())) {
-                        mode.startMode();
-                    }
+                    this.mode.startMode();
                 }
         );
     }

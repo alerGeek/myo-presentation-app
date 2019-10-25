@@ -1,8 +1,8 @@
 package pl.pollub.model.factory.modes;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
 import pl.pollub.model.factory.ModeType;
 import pl.pollub.model.factory.collectors.AbstractDataCollector;
 import pl.pollub.model.factory.collectors.RobotCollector;
@@ -11,20 +11,26 @@ import pl.pollub.model.factory.properties.RobotProperties;
 
 @Setter
 @Getter
-@ToString
+@EqualsAndHashCode
 public class RobotMode extends AbstractMode {
     private final ModeType modeType;
     private final AbstractProperties properties;
     private final AbstractDataCollector dataCollector;
 
     public RobotMode(AbstractProperties properties, AbstractDataCollector dataCollector) {
-        super(ModeType.ROBOT_COLLECTOR, properties, dataCollector);
-        this.modeType = ModeType.ROBOT_COLLECTOR;
+        super(ModeType.PRESENTATION, properties, dataCollector);
+        this.modeType = ModeType.PRESENTATION;
         this.properties = properties;
         this.dataCollector = dataCollector;
-}
+        addToDeviceFacade();
+    }
 
-public RobotProperties getProperties() {
+    @Override
+    public void addToDeviceFacade() {
+        super.getDeviceFacade().getDevice().getModesMap().put(modeType.toLower(), this);
+    }
+
+    public RobotProperties getProperties() {
         return (RobotProperties) properties;
     }
 
