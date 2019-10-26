@@ -10,13 +10,9 @@ import java.util.List;
 
 public class HubListener implements ChangeListener<Hub> {
     private final List<ToggleButton> allButtons;
-    private final List<ToggleButton> listenersButtons;
-    private final ToggleButton addMyoButton;
 
-    public HubListener(List<ToggleButton> allButtons, List<ToggleButton> listenersButtons, ToggleButton addMyoButton) {
+    public HubListener(List<ToggleButton> allButtons) {
         this.allButtons = allButtons;
-        this.listenersButtons = listenersButtons;
-        this.addMyoButton = addMyoButton;
     }
 
     public void changed(ObservableValue<? extends Hub> observable, Hub oldValue, Hub newValue) {

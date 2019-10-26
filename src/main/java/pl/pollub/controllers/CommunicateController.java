@@ -37,9 +37,9 @@ public class CommunicateController implements Initializable {
     private final DeviceFacade deviceFacade = FacadeWrapperSingleton.INSTANCE.getFacade();
     private ObservableList<Map.Entry<String, AbstractMode>> entries;
 
-    private ObservableMap<String, AbstractMode> modesMap = deviceFacade.getDevice().getModesMap();
-
     public void initialize(URL location, ResourceBundle resources) {
+        ObservableMap<String, AbstractMode> modesMap = deviceFacade.getDevice().getModesMap();
+
         modesMap.addListener((MapChangeListener<? super String, ? super AbstractMode>) change -> {
             entries = FXCollections.observableArrayList(modesMap.entrySet());
             listView.setItems(entries);

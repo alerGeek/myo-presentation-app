@@ -6,10 +6,10 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public interface AbstractModeController extends Initializable {
-    public void initialize(URL location, ResourceBundle resources);
+    void initialize(URL location, ResourceBundle resources);
 
-    public void startMode();
+    void startMode();
 
-    public void stopMode();
+    void stopMode();
 
 }

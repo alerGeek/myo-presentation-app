@@ -11,7 +11,7 @@ import pl.pollub.model.factory.properties.RobotProperties;
 
 @Setter
 @Getter
-@EqualsAndHashCode
+@EqualsAndHashCode(callSuper = true)
 public class RobotMode extends AbstractMode {
     private final ModeType modeType;
     private final AbstractProperties properties;

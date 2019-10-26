@@ -5,7 +5,7 @@ import com.thalmic.myo.Myo;
 import javafx.beans.property.ObjectProperty;
 import javafx.concurrent.Task;
 import lombok.Getter;
-import pl.pollub.exception.HubNotFoundException;
+import pl.pollub.exception.MyoConnectNotFoundException;
 import pl.pollub.exception.MyoNotFoundException;
 import pl.pollub.model.MyoState;
 
@@ -52,12 +52,12 @@ public class Connector {
                         device.getMyoState().setValue(MyoState.MYO_NOT_FOUND);
                         throw new MyoNotFoundException();
                     }
-
                     device.getMyoState().setValue(MyoState.MYO_FOUND);
                 } catch (Exception ex) {
+
                     device.getMyoState().setValue(MyoState.MYO_NOT_FOUND);
                     if (ex.getMessage().equals("Unable to connect to Myo Connect. Is Myo Connect running?")) {
-                        ex = new HubNotFoundException("Nie można połączyć z Myo Connect. Sprawdź czy Myo Connect działa i uruchom ponownie aplikację.");
+                        ex = new MyoConnectNotFoundException("Nie można połączyć z Myo Connect. Sprawdź czy Myo Connect działa i uruchom ponownie aplikację.");
                     }
                     device.getCommunicate().setValue(ex.toString());
                     ex.printStackTrace();

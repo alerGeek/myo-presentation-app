@@ -50,13 +50,9 @@ public class Device {
         hub.getValue().removeListener(dataCollector);
     }
 
-    public void removeAllDataCollectors() {
+    public void removeAllDataCollectors() throws HubNotFoundException {
         if (hub.get() == null) {
-            try {
-                throw new HubNotFoundException();
-            } catch (HubNotFoundException e) {
-                communicate.setValue(e.getMessage());
-            }
+            throw new HubNotFoundException();
         }
 
         modesMap.forEach((key, abstractMode) -> {

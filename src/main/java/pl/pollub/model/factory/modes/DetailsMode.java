@@ -7,7 +7,7 @@ import pl.pollub.model.factory.collectors.DetailsCollector;
 import pl.pollub.model.factory.properties.AbstractProperties;
 import pl.pollub.model.factory.properties.DetailsProperties;
 
-@EqualsAndHashCode
+@EqualsAndHashCode(callSuper = true)
 public class DetailsMode extends AbstractMode {
     private final ModeType modeType;
     private final AbstractProperties properties;

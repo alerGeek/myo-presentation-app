@@ -60,9 +60,7 @@ public class MainController implements Initializable {
 
     private void addHubListener() {
         facade.getDevice().getHub().addListener(new HubListener(
-                changeModesViewController.getToggleButtons(),
-                changeModesViewController.getListenerButtons(),
-                connectorViewController.getAddMyoButton()));
+                changeModesViewController.getToggleButtons()));
     }
 
     private void addMyoListener() {

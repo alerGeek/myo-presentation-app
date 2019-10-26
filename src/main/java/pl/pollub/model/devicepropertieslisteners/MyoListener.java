@@ -1,6 +1,7 @@
 package pl.pollub.model.devicepropertieslisteners;
 
 import com.thalmic.myo.Myo;
+import com.thalmic.myo.exception.HubNotFoundException;
 import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -9,7 +10,7 @@ import pl.pollub.tool.FacadeWrapperSingleton;
 
 import java.util.List;
 
-public class MyoListener extends Object implements ChangeListener<Myo> {
+public class MyoListener implements ChangeListener<Myo> {
     private final List<ToggleButton> allButtons;
     private final List<ToggleButton> listenersButtons;
     private final ToggleButton addMyoButton;
@@ -31,16 +32,21 @@ public class MyoListener extends Object implements ChangeListener<Myo> {
     }
 
     private void onConnected() {
-        this.allButtons.forEach(button -> {
+        this.listenersButtons.forEach(button -> {
             button.setSelected(false);
             button.setDisable(false);
         });
+
         this.addMyoButton.setSelected(true);
         this.addMyoButton.setDisable(true);
     }
 
     private void onNull() {
-        FacadeWrapperSingleton.INSTANCE.getFacade().getDevice().removeAllDataCollectors();
+        try {
+            FacadeWrapperSingleton.INSTANCE.getFacade().getDevice().removeAllDataCollectors();
+        } catch (HubNotFoundException e) {
+            e.printStackTrace();
+        }
 
         this.allButtons.forEach(button -> {
             button.setSelected(true);

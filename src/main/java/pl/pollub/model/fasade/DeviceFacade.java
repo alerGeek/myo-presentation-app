@@ -40,9 +40,5 @@ public class DeviceFacade {
             device.getCommunicate().setValue(e.getMessage());
         }
     }
-
-    public void addAllDataCollector() {
-        device.getModesMap().putAll(ModeFactory.createAllModes());
-    }
 }
 

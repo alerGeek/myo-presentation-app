@@ -11,7 +11,8 @@ import pl.pollub.model.factory.properties.MouseProperties;
 
 @Setter
 @Getter
-@EqualsAndHashCode()
+@EqualsAndHashCode(callSuper = true)
+
 public class MouseMode extends AbstractMode {
     private final ModeType modeType;
     private final AbstractProperties properties;
@@ -29,6 +30,7 @@ public class MouseMode extends AbstractMode {
     public void addToDeviceFacade() {
         super.getDeviceFacade().getDevice().getModesMap().put(modeType.toLower(), this);
     }
+
     public MouseProperties getProperties() {
         return (MouseProperties) properties;
     }

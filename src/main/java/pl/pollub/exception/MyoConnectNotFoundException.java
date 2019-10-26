@@ -1,6 +1,6 @@
 package pl.pollub.exception;
 
-public class MyoConnectNotFoundException extends com.thalmic.myo.exception.HubNotFoundException {
+public class MyoConnectNotFoundException extends HubNotFoundException {
     public MyoConnectNotFoundException(String message) {
         super(message);
     }

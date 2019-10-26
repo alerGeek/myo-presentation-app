@@ -11,7 +11,7 @@ import pl.pollub.model.factory.properties.TutorialProperties;
 
 @Setter
 @Getter
-@EqualsAndHashCode
+@EqualsAndHashCode(callSuper = true)
 public class TutorialMode extends AbstractMode {
     private final ModeType modeType;
     private final AbstractProperties properties;
