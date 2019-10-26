@@ -29,7 +29,6 @@ public class CollectorService extends ScheduledService<Void> {
                     device.requestBattery();
                 } catch (Exception ex) {
                     communicate.set(ex.getMessage());
-                    ex.printStackTrace();
                     CollectorService.this.failed();
                 }
                 return null;

@@ -14,7 +14,7 @@
     <item name='pl.pollub.controllers.ChangeModesController mouseViewController'>
         <annotation name='javafx.fxml.FXML'/>
     </item>
-    <item name='pl.pollub.controllers.ChangeModesController robotViewController'>
+    <item name='pl.pollub.controllers.ChangeModesController presentationViewController'>
         <annotation name='javafx.fxml.FXML'/>
     </item>
     <item name='pl.pollub.controllers.ChangeModesController tutorialViewController'>
@@ -95,13 +95,13 @@
     <item name='pl.pollub.controllers.ModesController mouseViewController'>
         <annotation name='javafx.fxml.FXML'/>
     </item>
-    <item name='pl.pollub.controllers.ModesController robotPane'>
+    <item name='pl.pollub.controllers.ModesController presentationPane'>
         <annotation name='javafx.fxml.FXML'/>
     </item>
-    <item name='pl.pollub.controllers.ModesController robotView'>
+    <item name='pl.pollub.controllers.ModesController presentationView'>
         <annotation name='javafx.fxml.FXML'/>
     </item>
-    <item name='pl.pollub.controllers.ModesController robotViewController'>
+    <item name='pl.pollub.controllers.ModesController presentationViewController'>
         <annotation name='javafx.fxml.FXML'/>
     </item>
     <item name='pl.pollub.controllers.ModesController tutorialView'>
@@ -110,7 +110,7 @@
     <item name='pl.pollub.controllers.ModesController tutorialViewController'>
         <annotation name='javafx.fxml.FXML'/>
     </item>
-    <item name='pl.pollub.controllers.RobotController mouseView'>
+    <item name='pl.pollub.controllers.PresentationController mouseView'>
         <annotation name='javafx.fxml.FXML'/>
     </item>
     <item name="pl.pollub.controllers.TutorialController doubleTap">

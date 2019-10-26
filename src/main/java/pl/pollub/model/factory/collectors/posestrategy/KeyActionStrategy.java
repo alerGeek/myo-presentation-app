@@ -1,21 +1,15 @@
 package pl.pollub.model.factory.collectors.posestrategy;
 
-import pl.pollub.tool.RobotManager;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 public abstract class KeyActionStrategy {
-    private final int keyCode;
+    private int keyCode;
 
-    public KeyActionStrategy(int keyCode) {
-        this.keyCode = keyCode;
-    }
+    abstract int pressKey();
 
-    public int pressKey() {
-        return RobotManager.simulateKeyEvent(keyCode);
-    }
-
-    public int pressMouseKey() {
-        RobotManager.simulateMouseButtonEvent(keyCode);
-        return keyCode;
-    }
+    abstract int pressMouseKey();
 
 }

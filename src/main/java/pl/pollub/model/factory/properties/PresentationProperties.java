@@ -9,19 +9,19 @@ import lombok.Builder;
 import lombok.Getter;
 
 @Getter
-public class RobotProperties extends AbstractProperties {
+public class PresentationProperties extends AbstractProperties {
     private final ObjectProperty<PoseType> poseType;
     private final BooleanProperty isLocked;
 
     @Builder
-    public RobotProperties(BooleanProperty isActive, ObjectProperty<PoseType> poseType, BooleanProperty isLocked) {
+    public PresentationProperties(BooleanProperty isActive, ObjectProperty<PoseType> poseType, BooleanProperty isLocked) {
         super(isActive);
         this.poseType = poseType;
         this.isLocked = isLocked;
     }
 
-    public static RobotProperties createProperties() {
-        return RobotProperties.builder()
+    public static PresentationProperties createProperties() {
+        return PresentationProperties.builder()
                 .isActive(new SimpleBooleanProperty())
                 .poseType(new SimpleObjectProperty<>(PoseType.UNKNOWN))
                 .isLocked(new SimpleBooleanProperty())

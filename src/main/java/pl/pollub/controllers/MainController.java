@@ -51,7 +51,7 @@ public class MainController implements Initializable {
         changeModesViewController.setMainViewController(this);
         changeModesViewController.setModesViewController(modesViewController);
         changeModesViewController.setDetailsViewController(detailsViewController);
-        changeModesViewController.setRobotViewController(modesViewController.getRobotViewController());
+        changeModesViewController.setPresentationViewController(modesViewController.getPresentationViewController());
         changeModesViewController.setTutorialViewController(modesViewController.getTutorialViewController());
         changeModesViewController.setMouseViewController(modesViewController.getMouseViewController());
         changeModesViewController.setCommunicateViewController(modesViewController.getCommunicateViewController());

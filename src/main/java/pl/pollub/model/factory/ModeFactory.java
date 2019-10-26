@@ -20,7 +20,7 @@ public class ModeFactory {
                 createdProperties = MouseProperties.createProperties();
                 break;
             case PRESENTATION:
-                createdProperties = RobotProperties.createProperties();
+                createdProperties = PresentationProperties.createProperties();
                 break;
             case TUTORIAL:
                 createdProperties = TutorialProperties.createProperties();
@@ -41,7 +41,7 @@ public class ModeFactory {
                 createdCollector = new MouseCollector(modeType.toLower(), properties, new KeyActionContext(), new MouseMover(), new MouseLeftClickAction(), new MouseRightClickAction());
                 break;
             case PRESENTATION:
-                createdCollector = new RobotCollector(modeType.toLower(), properties, new KeyActionContext(), new LeftKeyAction(), new RightKeyAction());
+                createdCollector = new PresentationCollector(modeType.toLower(), properties, new KeyActionContext(), new LeftKeyAction(), new RightKeyAction());
                 break;
             case TUTORIAL:
                 createdCollector = new TutorialCollector(modeType.toLower(), properties);
@@ -64,7 +64,7 @@ public class ModeFactory {
                 mode = new MouseMode(properties, dataCollector);
                 break;
             case PRESENTATION:
-                mode = new RobotMode(properties, dataCollector);
+                mode = new PresentationMode(properties, dataCollector);
                 break;
             case TUTORIAL:
                 mode = new TutorialMode(properties, dataCollector);

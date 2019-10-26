@@ -25,11 +25,11 @@
             </tooltip>
             <fx:include fx:id="mouseView" source="mouse-view.fxml" />
         </Tab>
-        <Tab fx:id="robotTab">
+        <Tab fx:id="presentationTab">
             <tooltip>
                 <Tooltip autoHide="true" prefHeight="100.0" prefWidth="400.0" text="Uruchom tryb prezentacji. Uwaga: tryb symuluje prawdziwe zderzenia klawiatury!" textAlignment="JUSTIFY" wrapText="true" />
             </tooltip>
-            <fx:include fx:id="robotView" source="robot-view.fxml" />
+            <fx:include fx:id="presentationView" source="presentation-view.fxml" />
         </Tab>
     </TabPane>
 </AnchorPane>

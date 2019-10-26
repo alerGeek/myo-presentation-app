@@ -7,18 +7,18 @@ import pl.pollub.model.factory.collectors.posestrategy.KeyActionContext;
 import pl.pollub.model.factory.collectors.posestrategy.LeftKeyAction;
 import pl.pollub.model.factory.collectors.posestrategy.RightKeyAction;
 import pl.pollub.model.factory.properties.AbstractProperties;
-import pl.pollub.model.factory.properties.RobotProperties;
+import pl.pollub.model.factory.properties.PresentationProperties;
 
 @Getter
-public class RobotCollector extends AbstractDataCollector {
-    private final RobotProperties properties;
+public class PresentationCollector extends AbstractDataCollector {
+    private final PresentationProperties properties;
     private final KeyActionContext keyActionContext;
     private final LeftKeyAction leftKeyAction;
     private final RightKeyAction rightKeyAction;
 
-    public RobotCollector(String collectorName, AbstractProperties properties, KeyActionContext keyActionContext, LeftKeyAction leftKeyAction, RightKeyAction rightKeyAction) {
+    public PresentationCollector(String collectorName, AbstractProperties properties, KeyActionContext keyActionContext, LeftKeyAction leftKeyAction, RightKeyAction rightKeyAction) {
         super(collectorName, properties);
-        this.properties = (RobotProperties) properties;
+        this.properties = (PresentationProperties) properties;
         this.keyActionContext = keyActionContext;
         this.leftKeyAction = leftKeyAction;
         this.rightKeyAction = rightKeyAction;
@@ -43,7 +43,7 @@ public class RobotCollector extends AbstractDataCollector {
         }
     }
 
-    public RobotProperties getProperties() {
+    public PresentationProperties getProperties() {
         return properties;
     }
 }

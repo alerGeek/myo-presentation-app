@@ -26,7 +26,7 @@ public class ChangeModesController implements Initializable {
 
     @FXML private MainController mainViewController;
     @FXML private ModesController modesViewController;
-    @FXML private RobotController robotViewController;
+    @FXML private PresentationController presentationViewController;
     @FXML private DetailsController detailsViewController;
     @FXML private MouseController mouseViewController;
     @FXML private TutorialController tutorialViewController;
@@ -47,9 +47,9 @@ public class ChangeModesController implements Initializable {
 
     public void presentationHandler() {
         if (!listenerPresentationButton.isSelected()) {
-            robotViewController.stopMode();
+            presentationViewController.stopMode();
         } else {
-            robotViewController.startMode();
+            presentationViewController.startMode();
             modesViewController.selectTab(ModeType.COMMUNICATE);
         }
     }

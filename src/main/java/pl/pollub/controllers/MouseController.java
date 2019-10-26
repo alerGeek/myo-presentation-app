@@ -1,7 +1,7 @@
 package pl.pollub.controllers;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.TextField;
+import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,7 +16,7 @@ import java.util.ResourceBundle;
 @Setter
 public class MouseController implements AbstractModeController {
     @FXML private AnchorPane mouseView;
-    @FXML private TextField currentPosition;
+    @FXML private Label currentPosition;
 
     private final ModeType modeType = ModeType.MOUSE;
     private final MouseMode mode = (MouseMode) ModeFactory.createMode(modeType);

@@ -18,16 +18,16 @@ public class ModesController implements Initializable {
     @FXML private Tab communicateTab;
     @FXML private Tab tutorialTab;
     @FXML private Tab mouseTab;
-    @FXML private Tab robotTab;
+    @FXML private Tab presentationTab;
     @FXML private TabPane modePaneView;
-    @FXML private AnchorPane robotView;
+    @FXML private AnchorPane presentationView;
     @FXML private AnchorPane modesView;
     @FXML private AnchorPane communicateView;
     @FXML private AnchorPane tutorialView;
     @FXML private AnchorPane mouseView;
-    @FXML private AnchorPane robotPane;
+    @FXML private AnchorPane presentationPane;
 
-    @FXML private RobotController robotViewController;
+    @FXML private PresentationController presentationViewController;
     @FXML private CommunicateController communicateViewController;
     @FXML private TutorialController tutorialViewController;
     @FXML private MouseController mouseViewController;

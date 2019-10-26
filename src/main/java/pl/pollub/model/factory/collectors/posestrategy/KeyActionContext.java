@@ -1,10 +1,14 @@
 package pl.pollub.model.factory.collectors.posestrategy;
 
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @AllArgsConstructor
 @NoArgsConstructor
+@Getter
+@Setter
 public class KeyActionContext {
     private KeyActionStrategy strategy;
 
