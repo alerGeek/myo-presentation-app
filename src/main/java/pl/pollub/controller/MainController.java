@@ -7,13 +7,13 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import lombok.Getter;
 import lombok.Setter;
+import pl.pollub.device.DeviceFacade;
 import pl.pollub.device.propertylistener.CommunicateListener;
 import pl.pollub.device.propertylistener.HubListener;
 import pl.pollub.device.propertylistener.MyoListener;
 import pl.pollub.device.propertylistener.MyoStateListener;
-import pl.pollub.device.DeviceFacade;
-import pl.pollub.util.FacadeWrapperSingleton;
 import pl.pollub.tool.NodesFinder;
+import pl.pollub.util.FacadeWrapperSingleton;
 
 import java.net.URL;
 import java.util.ArrayList;

@@ -10,9 +10,9 @@ import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableMap;
 import lombok.Getter;
-import pl.pollub.types.MyoState;
 import pl.pollub.modefactory.AbstractDataCollector;
 import pl.pollub.modefactory.AbstractMode;
+import pl.pollub.type.MyoState;
 
 @Getter
 public class Device {

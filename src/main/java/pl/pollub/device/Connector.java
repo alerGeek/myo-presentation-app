@@ -7,7 +7,7 @@ import javafx.concurrent.Task;
 import lombok.Getter;
 import pl.pollub.exception.MyoConnectNotFoundException;
 import pl.pollub.exception.MyoNotFoundException;
-import pl.pollub.types.MyoState;
+import pl.pollub.type.MyoState;
 
 @Getter
 public class Connector {

@@ -2,7 +2,6 @@ package pl.pollub.modefactory;
 
 import com.thalmic.myo.AbstractDeviceListener;
 import lombok.Getter;
-import pl.pollub.modefactory.AbstractProperties;
 
 @Getter
 public abstract class AbstractDataCollector extends AbstractDeviceListener {

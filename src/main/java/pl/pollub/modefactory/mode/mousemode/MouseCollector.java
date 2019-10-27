@@ -10,10 +10,10 @@ import javafx.concurrent.ScheduledService;
 import javafx.concurrent.Task;
 import lombok.Getter;
 import pl.pollub.modefactory.AbstractDataCollector;
+import pl.pollub.modefactory.AbstractProperties;
 import pl.pollub.modefactory.posestrategy.KeyActionContext;
 import pl.pollub.modefactory.posestrategy.MouseLeftClickAction;
 import pl.pollub.modefactory.posestrategy.MouseRightClickAction;
-import pl.pollub.modefactory.AbstractProperties;
 import pl.pollub.util.RobotManager;
 
 import java.awt.*;

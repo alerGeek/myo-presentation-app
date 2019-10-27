@@ -3,8 +3,8 @@ package pl.pollub.controller;
 import javafx.fxml.FXML;
 import javafx.scene.layout.AnchorPane;
 import pl.pollub.modefactory.ModeFactory;
-import pl.pollub.types.ModeType;
 import pl.pollub.modefactory.mode.presentationmode.PresentationMode;
+import pl.pollub.type.ModeType;
 
 import java.net.URL;
 import java.util.ResourceBundle;

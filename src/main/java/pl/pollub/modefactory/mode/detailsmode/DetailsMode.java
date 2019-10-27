@@ -1,10 +1,10 @@
 package pl.pollub.modefactory.mode.detailsmode;
 
 import lombok.EqualsAndHashCode;
-import pl.pollub.modefactory.AbstractMode;
-import pl.pollub.types.ModeType;
 import pl.pollub.modefactory.AbstractDataCollector;
+import pl.pollub.modefactory.AbstractMode;
 import pl.pollub.modefactory.AbstractProperties;
+import pl.pollub.type.ModeType;
 
 @EqualsAndHashCode(callSuper = true)
 public class DetailsMode extends AbstractMode {

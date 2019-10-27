@@ -6,8 +6,8 @@ import com.thalmic.myo.Pose;
 import com.thalmic.myo.enums.*;
 import lombok.Builder;
 import pl.pollub.modefactory.AbstractDataCollector;
-import pl.pollub.types.MyoState;
 import pl.pollub.modefactory.AbstractProperties;
+import pl.pollub.type.MyoState;
 
 public class DetailsCollector extends AbstractDataCollector {
     private DetailsProperties properties;

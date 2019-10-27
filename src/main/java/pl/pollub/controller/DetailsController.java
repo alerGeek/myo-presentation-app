@@ -10,8 +10,8 @@ import pl.pollub.device.DeviceFacade;
 import pl.pollub.modefactory.ModeFactory;
 import pl.pollub.modefactory.mode.detailsmode.DetailsMode;
 import pl.pollub.modefactory.mode.detailsmode.DetailsProperties;
+import pl.pollub.type.ModeType;
 import pl.pollub.util.FacadeWrapperSingleton;
-import pl.pollub.types.ModeType;
 
 import java.net.URL;
 import java.util.ResourceBundle;

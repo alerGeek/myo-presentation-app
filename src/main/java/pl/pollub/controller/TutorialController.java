@@ -12,10 +12,10 @@ import javafx.scene.layout.AnchorPane;
 import lombok.Getter;
 import lombok.Setter;
 import pl.pollub.modefactory.ModeFactory;
-import pl.pollub.types.ModeType;
 import pl.pollub.modefactory.mode.tutorialmode.TutorialCollector;
 import pl.pollub.modefactory.mode.tutorialmode.TutorialMode;
 import pl.pollub.modefactory.mode.tutorialmode.TutorialProperties;
+import pl.pollub.type.ModeType;
 
 import java.net.URL;
 import java.util.Arrays;

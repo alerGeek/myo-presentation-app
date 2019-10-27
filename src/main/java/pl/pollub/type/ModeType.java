@@ -1,4 +1,4 @@
-package pl.pollub.types;
+package pl.pollub.type;
 
 public enum ModeType {
     DETAILS("details"),

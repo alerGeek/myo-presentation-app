@@ -5,7 +5,7 @@ import javafx.beans.property.StringProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.control.ToggleButton;
-import pl.pollub.types.MyoState;
+import pl.pollub.type.MyoState;
 
 import java.util.List;
 

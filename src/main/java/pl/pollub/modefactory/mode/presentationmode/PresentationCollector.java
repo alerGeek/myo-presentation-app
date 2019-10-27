@@ -4,10 +4,10 @@ import com.thalmic.myo.Myo;
 import com.thalmic.myo.Pose;
 import lombok.Getter;
 import pl.pollub.modefactory.AbstractDataCollector;
+import pl.pollub.modefactory.AbstractProperties;
 import pl.pollub.modefactory.posestrategy.KeyActionContext;
 import pl.pollub.modefactory.posestrategy.LeftKeyAction;
 import pl.pollub.modefactory.posestrategy.RightKeyAction;
-import pl.pollub.modefactory.AbstractProperties;
 
 @Getter
 public class PresentationCollector extends AbstractDataCollector {

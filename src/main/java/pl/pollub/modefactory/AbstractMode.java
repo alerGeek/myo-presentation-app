@@ -2,8 +2,8 @@ package pl.pollub.modefactory;
 
 import lombok.Getter;
 import lombok.Setter;
-import pl.pollub.types.ModeType;
 import pl.pollub.device.DeviceFacade;
+import pl.pollub.type.ModeType;
 import pl.pollub.util.FacadeWrapperSingleton;
 
 @Setter

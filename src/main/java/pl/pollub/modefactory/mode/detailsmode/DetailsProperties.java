@@ -6,7 +6,7 @@ import javafx.beans.property.*;
 import lombok.Builder;
 import lombok.Getter;
 import pl.pollub.modefactory.AbstractProperties;
-import pl.pollub.types.MyoState;
+import pl.pollub.type.MyoState;
 
 @Getter
 public class DetailsProperties extends AbstractProperties {

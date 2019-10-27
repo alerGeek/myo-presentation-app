@@ -1,4 +1,4 @@
-package pl.pollub.types;
+package pl.pollub.type;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;

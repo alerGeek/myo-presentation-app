@@ -6,8 +6,8 @@ import javafx.scene.layout.AnchorPane;
 import lombok.Getter;
 import lombok.Setter;
 import pl.pollub.modefactory.ModeFactory;
-import pl.pollub.types.ModeType;
 import pl.pollub.modefactory.mode.mousemode.MouseMode;
+import pl.pollub.type.ModeType;
 
 import java.net.URL;
 import java.util.ResourceBundle;

@@ -15,8 +15,8 @@ import javafx.scene.control.TextArea;
 import javafx.scene.layout.AnchorPane;
 import lombok.Getter;
 import lombok.Setter;
-import pl.pollub.modefactory.AbstractMode;
 import pl.pollub.device.DeviceFacade;
+import pl.pollub.modefactory.AbstractMode;
 import pl.pollub.util.FacadeWrapperSingleton;
 
 import java.net.URL;

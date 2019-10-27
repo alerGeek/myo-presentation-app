@@ -3,10 +3,10 @@ package pl.pollub.modefactory.mode.presentationmode;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
-import pl.pollub.modefactory.AbstractMode;
-import pl.pollub.types.ModeType;
 import pl.pollub.modefactory.AbstractDataCollector;
+import pl.pollub.modefactory.AbstractMode;
 import pl.pollub.modefactory.AbstractProperties;
+import pl.pollub.type.ModeType;
 
 @Setter
 @Getter

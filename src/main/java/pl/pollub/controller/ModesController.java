@@ -7,7 +7,7 @@ import javafx.scene.control.TabPane;
 import javafx.scene.layout.AnchorPane;
 import lombok.Getter;
 import lombok.Setter;
-import pl.pollub.types.ModeType;
+import pl.pollub.type.ModeType;
 
 import java.net.URL;
 import java.util.ResourceBundle;

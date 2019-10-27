@@ -1,20 +1,20 @@
 package pl.pollub.modefactory;
 
+import pl.pollub.modefactory.mode.detailsmode.DetailsCollector;
+import pl.pollub.modefactory.mode.detailsmode.DetailsMode;
+import pl.pollub.modefactory.mode.detailsmode.DetailsProperties;
 import pl.pollub.modefactory.mode.mousemode.MouseCollector;
 import pl.pollub.modefactory.mode.mousemode.MouseMode;
-import pl.pollub.modefactory.mode.mousemode.MouseProperties;
 import pl.pollub.modefactory.mode.mousemode.MouseMover;
-import pl.pollub.modefactory.posestrategy.*;
+import pl.pollub.modefactory.mode.mousemode.MouseProperties;
 import pl.pollub.modefactory.mode.presentationmode.PresentationCollector;
 import pl.pollub.modefactory.mode.presentationmode.PresentationMode;
 import pl.pollub.modefactory.mode.presentationmode.PresentationProperties;
 import pl.pollub.modefactory.mode.tutorialmode.TutorialCollector;
 import pl.pollub.modefactory.mode.tutorialmode.TutorialMode;
 import pl.pollub.modefactory.mode.tutorialmode.TutorialProperties;
-import pl.pollub.modefactory.mode.detailsmode.DetailsCollector;
-import pl.pollub.modefactory.mode.detailsmode.DetailsMode;
-import pl.pollub.modefactory.mode.detailsmode.DetailsProperties;
-import pl.pollub.types.ModeType;
+import pl.pollub.modefactory.posestrategy.*;
+import pl.pollub.type.ModeType;
 
 import java.util.Arrays;
 import java.util.HashMap;
