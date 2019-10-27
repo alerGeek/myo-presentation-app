@@ -89,7 +89,7 @@ C  0x0000000002f465fd
 
 Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
 J 4501  com.thalmic.myo.Hub.run(I)V (0 bytes) @ 0x0000000002f4657b [0x0000000002f46540+0x3b]
-J 4006 C1 pl.pollub.model.fasade.CollectorService$1.call()Ljava/lang/Void; (110 bytes) @ 0x0000000002f47cd4 [0x0000000002f476e0+0x5f4]
+J 4006 C1 pl.pollub.device.CollectorService$1.call()Ljava/lang/Void; (110 bytes) @ 0x0000000002f47cd4 [0x0000000002f476e0+0x5f4]
 J 3768 C2 java.util.concurrent.FutureTask.run()V (126 bytes) @ 0x00000000033c4ad8 [0x00000000033c4440+0x698]
 J 3776 C2 javafx.concurrent.Service$$Lambda$385.run()Ljava/lang/Object; (8 bytes) @ 0x00000000033b0420 [0x00000000033b03e0+0x40]
 v  ~StubRoutines::call_stub

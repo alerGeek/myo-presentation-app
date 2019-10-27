@@ -1307,7 +1307,7 @@
     -fx-background-insets: 0, 2;
 }
 
-/* "Textfield"  - most devicepropertieslisteners will be inherited by what was defined for the textfield */
+/* "Textfield"  - most propertylistener will be inherited by what was defined for the textfield */
 
 .date-picker > .text-field{
     -fx-skin: "com.sun.javafx.scene.control.skin.TextFieldSkin";
