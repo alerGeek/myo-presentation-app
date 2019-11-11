@@ -2,7 +2,6 @@ package pl.pollub.tool;
 
 import java.util.Random;
 
-
 public class RandomEnumGenerator {
     public static final Random RANDOM_ENUM = new Random();
 
