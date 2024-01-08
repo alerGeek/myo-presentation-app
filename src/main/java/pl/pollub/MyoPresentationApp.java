@@ -18,7 +18,7 @@ public class MyoPresentationApp extends Application {
         primaryStage.centerOnScreen();
         primaryStage.show();
 
-        Parent root = FXMLLoader.load(getClass().getResource("/fxml-view/myo-app.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml-view/main-view.fxml"));
         primaryStage.setScene(new Scene(root));
     }
 }

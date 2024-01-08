@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<AnchorPane fx:id="paneTutorial" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="pl.pollub.controller.TutorialController">
+    <VBox alignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+          AnchorPane.topAnchor="0.0">
+        <HBox alignment="CENTER">
+            <Label id="double_tap" styleClass="poseLabel" fx:id="doubleTap" text="DOUBLE TAP"/>
+            <Label id="poseDescriptionLabel" text="Blokada"/>
+            <ImageView fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                <Image url="@images/double_tap.png"/>
+            </ImageView>
+        </HBox>
+        <HBox alignment="CENTER">
+            <Label id="wave_out" styleClass="poseLabel" fx:id="waveOut" text="WAVE OUT"/>
+            <Label id="poseDescriptionLabel" text="Następny slajd">
+            </Label>
+            <ImageView fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                <Image url="@images/wave_out.png"/>
+            </ImageView>
+        </HBox>
+        <HBox alignment="CENTER">
+            <Label id="wave_in" styleClass="poseLabel" fx:id="waveIn" text="WAVE IN"/>
+            <Label id="poseDescriptionLabel" text="Poprzedni slajd"/>
+            <ImageView fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                <Image url="@images/wave_in.png"/>
+            </ImageView>
+        </HBox>
+        <HBox alignment="CENTER">
+            <Label id="fist" styleClass="poseLabel" fx:id="fist" text="FIST"/>
+            <Label id="poseDescriptionLabel" text="Włącza/Wyłącza Tryb myszki (&gt;4s)"/>
+            <ImageView fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                <Image url="@images/fist.png"/>
+            </ImageView>
+        </HBox>
+        <HBox alignment="CENTER">
+            <Label id="fingers_spread" styleClass="poseLabel" fx:id="fingersSpread" text="FINGERS"/>
+            <Label id="poseDescriptionLabel" text="Prawy p. myszki (tryb myszki)"/>
+            <ImageView fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                <Image url="@images/fingers.png"/>
+            </ImageView>
+        </HBox>
+    </VBox>
+</AnchorPane>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<AnchorPane fx:id="buttonsPane" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.pollub.controller.ChangeModesController">
+    <Separator orientation="VERTICAL" AnchorPane.leftAnchor="400.0" AnchorPane.rightAnchor="400.0" />
+    <HBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <ToggleButton id="addListenerButton" fx:id="listenerTutorialButton" disable="true" focusTraversable="false" onAction="#tutorialHandler" text="TUTORIAL">
+         </ToggleButton>
+        <Separator orientation="VERTICAL" />
+        <ToggleButton id="addListenerButton" fx:id="listenerPresentationButton" disable="true" focusTraversable="false" onAction="#presentationHandler" text="PREZENTACJA" />
+      <Separator orientation="VERTICAL" />
+      <ToggleButton id="addListenerButton" fx:id="listenerMouseButton" disable="true" focusTraversable="false" onAction="#mouseHandler" text="MYSZKA" />
+    </HBox>
+</AnchorPane>
